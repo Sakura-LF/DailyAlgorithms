@@ -22,7 +22,7 @@ func TestBubbleSort(t *testing.T) {
 // 测试插入排序
 func TestInsertionSort(t *testing.T) {
 	nums := []int{5, 8, 100, 2, 4, 9, 10, 7}
-	InsertionSort(nums)
+	InsertionSort1(nums)
 	fmt.Println(nums)
 }
 

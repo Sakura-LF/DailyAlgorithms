@@ -2,18 +2,21 @@ package allSort
 
 // SelectionSort 选择排序
 // 思路: 每一轮从剩余未排序的部分中找到最小的元素，并将其与已排序部分的末尾元素交换位置
+// 初始状态下,所有元素未排序
 // 每一次循环比出一位最小的数
 // 时间复杂度: O(n^2)
 func SelectionSort(s []int) {
 	length := len(s)
 	// 不需要比最后一个数
 	for i := 0; i < length-1; i++ {
+		// 使用 minIndex 记录未排序区间的最小元素
 		minIndex := i
 		for j := i + 1; j < length; j++ {
 			if s[j] < s[minIndex] {
 				minIndex = j
 			}
 		}
+		// 将为排序元素和选出来的最小元素交换
 		s[i], s[minIndex] = s[minIndex], s[i]
 	}
 }
@@ -24,11 +27,32 @@ func SelectionSort(s []int) {
 // 时间复杂度: O(n^2)
 func BubbleSort(s []int) {
 	length := len(s)
-	for i := 0; i < length-1; i++ {
-		for j := 0; j < length-1-i; j++ {
+	// 外循环: 未排序区间未 [0, i]
+	for i := length - 1; i > 0; i-- {
+		// 内循环:
+		for j := 0; j < i; j++ {
 			if s[j] > s[j+1] {
 				s[j], s[j+1] = s[j+1], s[j]
 			}
+		}
+	}
+}
+
+/* 冒泡排序（标志优化）*/
+func bubbleSortWithFlag(nums []int) {
+	// 外循环：未排序区间为 [0, i]
+	for i := len(nums) - 1; i > 0; i-- {
+		flag := false // 初始化标志位
+		// 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端
+		for j := 0; j < i; j++ {
+			if nums[j] > nums[j+1] {
+				// 交换 nums[j] 与 nums[j + 1]
+				nums[j], nums[j+1] = nums[j+1], nums[j]
+				flag = true // 记录交换元素
+			}
+		}
+		if flag == false { // 此轮“冒泡”未交换任何元素，直接跳出
+			break
 		}
 	}
 }
@@ -41,8 +65,24 @@ func InsertionSort(s []int) {
 
 	for i := 1; i < length; i++ {
 		// j 当前索引的左边的元素
+		// j + 1 当前索引
 		for j := i - 1; j >= 0 && s[j] > s[j+1]; j-- {
 			s[j], s[j+1] = s[j+1], s[j]
 		}
 	}
 }
+
+func InsertionSort1(s []int) {
+	length := len(s)
+	for i := 1; i < length; i++ {
+		bash := s[i]
+		// j 当前索引的左边的元素'
+		j := i - 1
+		for ; j >= 0 && s[j] > bash; j-- {
+			s[j+1] = s[j]
+		}
+		s[j+1] = bash
+	}
+}
+
+// 快速排序
