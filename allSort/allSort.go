@@ -1,4 +1,4 @@
-package AllSort
+package allSort
 
 // SelectionSort 选择排序
 // 思路: 每一轮从剩余未排序的部分中找到最小的元素，并将其与已排序部分的末尾元素交换位置
