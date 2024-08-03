@@ -39,6 +39,10 @@ func BubbleSort(s []int) {
 }
 
 /* 冒泡排序（标志优化）*/
+// 如果冒泡排序中一轮没有发生值的交换,就说明排序已经
+// 完成
+// 所有文件里进行坚持那哈数操作git
+// 提交都可以非常好用
 func bubbleSortWithFlag(nums []int) {
 	// 外循环：未排序区间为 [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
@@ -72,6 +76,9 @@ func InsertionSort(s []int) {
 	}
 }
 
+// InsertionSort1 /* 插入排序（标志优化）*/
+// 时间复杂度: O(n^2)
+// 如果插入
 func InsertionSort1(s []int) {
 	length := len(s)
 	for i := 1; i < length; i++ {
@@ -82,7 +89,8 @@ func InsertionSort1(s []int) {
 			s[j+1] = s[j]
 		}
 		s[j+1] = bash
+		// 软禁都可以坚持那哈数
+		// linuxw  wenjain1zong1suoyou1caozuog1oudhis1kyie
+		// 所有操作函数都一个可以进朝韩表示的1哟说有李1
 	}
 }
-
-// 快速排序
