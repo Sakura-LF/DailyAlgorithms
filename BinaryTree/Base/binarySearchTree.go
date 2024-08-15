@@ -24,10 +24,10 @@ func (b *BinarySearchTree) InsertInto(value int) {
 	var pre *TreeNode = nil
 	// 循环查找
 	for curNode != nil {
-		if curNode.Value == value {
+		if curNode.Val == value {
 			return
 		}
-		if curNode.Value < value {
+		if curNode.Val < value {
 			pre = curNode
 			curNode = curNode.Right
 		} else {
@@ -37,7 +37,7 @@ func (b *BinarySearchTree) InsertInto(value int) {
 	}
 	// 插入节点
 	node := NewTreeNode(value)
-	if pre.Value < value {
+	if pre.Val < value {
 		pre.Right = node
 	} else {
 		pre.Left = node
@@ -50,13 +50,13 @@ func (b *BinarySearchTree) InsertInto(value int) {
 func (b *BinarySearchTree) Search(value int) *TreeNode {
 	curNode := b.root
 	for curNode != nil {
-		if curNode.Value < value {
+		if curNode.Val < value {
 			curNode = curNode.Right
 		}
-		if curNode.Value > value {
+		if curNode.Val > value {
 			curNode = curNode.Left
 		}
-		if curNode.Value == value {
+		if curNode.Val == value {
 			return curNode
 		}
 	}

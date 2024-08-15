@@ -4,7 +4,7 @@ import "container/list"
 
 // TreeNode 二叉树节点
 type TreeNode struct {
-	Value int
+	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
@@ -12,7 +12,7 @@ type TreeNode struct {
 // NewTreeNode 构建二叉树节点
 func NewTreeNode(value int) *TreeNode {
 	return &TreeNode{
-		Value: value,
+		Val:   value,
 		Left:  nil,
 		Right: nil,
 	}
@@ -27,7 +27,7 @@ func levelOrder(root *TreeNode) []int {
 	for queue.Len() > 0 {
 		// 队列出队
 		node := queue.Remove(queue.Front()).(*TreeNode)
-		nums = append(nums, node.Value)
+		nums = append(nums, node.Val)
 		// 如果左子节点不为nil,入队
 		if node.Left != nil {
 			queue.PushBack(node.Left)
@@ -47,7 +47,7 @@ func PreOrder(node *TreeNode) []int {
 		if node == nil {
 			return
 		}
-		result = append(result, node.Value)
+		result = append(result, node.Val)
 		preOrder(node.Left)
 		preOrder(node.Right)
 	}
@@ -64,7 +64,7 @@ func MiddleOrder(node *TreeNode) []int {
 			return
 		}
 		middleOrder(node.Left)
-		result = append(result, node.Value)
+		result = append(result, node.Val)
 		middleOrder(node.Right)
 	}
 	middleOrder(node)
@@ -81,7 +81,7 @@ func PostOrder(node *TreeNode) []int {
 		}
 		postOrder(node.Left)
 		postOrder(node.Right)
-		result = append(result, node.Value)
+		result = append(result, node.Val)
 	}
 	postOrder(node)
 	return result

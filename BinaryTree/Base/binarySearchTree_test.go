@@ -12,9 +12,9 @@ func TestNewBinarySearchTree(t *testing.T) {
 	binarySearchTreeRoot.InsertInto(1)
 	binarySearchTreeRoot.InsertInto(7)
 	//
-	//fmt.Println(tree.root.Value)
-	//fmt.Println(tree.root.Left.Left.Value)
-	//fmt.Println(tree.root.Value)
-	//fmt.Println(tree.root.Right.Value)
+	//fmt.Println(tree.root.Val)
+	//fmt.Println(tree.root.Left.Left.Val)
+	//fmt.Println(tree.root.Val)
+	//fmt.Println(tree.root.Right.Val)
 
 }
