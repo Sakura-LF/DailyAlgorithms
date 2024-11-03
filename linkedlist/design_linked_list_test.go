@@ -5,6 +5,7 @@ import (
 )
 
 func TestConstructor(t *testing.T) {
+
 	//myLinkedList := Constructor()
 	//myLinkedList.AddAtHead(1)
 	//myLinkedList.AddAtHead(2)

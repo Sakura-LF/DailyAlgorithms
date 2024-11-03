@@ -16,3 +16,28 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return cur
 }
+
+func reverseList2(head *ListNode) *ListNode {
+	var pre *ListNode
+	cur := head
+
+	for cur != nil {
+		cur.Next, pre, cur = pre, cur, cur.Next
+	}
+	return cur
+}
+
+func hasCycle(head *ListNode) bool {
+	fast := head
+	slow := head
+
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+
+		if fast == slow {
+			return true
+		}
+	}
+	return false
+}
